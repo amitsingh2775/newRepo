@@ -19,6 +19,8 @@ jobs:
       run: |
         echo "$SSH_PRIVATE_KEY" > keyfile
         chmod 600 keyfile
+         mkdir -p ~/.ssh
+        cp known_hosts ~/.ssh/known_hosts
         ssh -t -i keyfile ubuntu@ec2-3-135-218-88.us-east-2.compute.amazonaws.com "sudo bash ~/deploy.sh"
 
 
